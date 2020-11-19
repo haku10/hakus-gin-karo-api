@@ -7,8 +7,23 @@ services:
       - ./rest_api:/go/src/rest_api
       - ./db:/go/db
     ports:
-      - "9601:3000"
+      - "9601:8080"
     tty: true
     stdin_open: true
+    depends_on:
+      - rest-db
     env_file:
       - .env
+  rest-db:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile.mysql
+    ports:
+      - 9602:3306
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    volumes:
+      - rest-db:/var/lib/mysql
+volumes:
+  rest-db:
