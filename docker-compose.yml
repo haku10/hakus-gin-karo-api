@@ -1,0 +1,14 @@
+version: "3"
+services:
+  gin-api:
+    build: .
+    volumes:
+      - $HOME/.aws:/root/.aws
+      - ./rest_api:/go/src/rest_api
+      - ./db:/go/db
+    ports:
+      - "9601:3000"
+    tty: true
+    stdin_open: true
+    env_file:
+      - .env
