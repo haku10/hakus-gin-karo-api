@@ -1,15 +1,14 @@
 FROM golang:latest
 
+# 初期化
+COPY src/ /go/src/
+WORKDIR /go/src/api/
+
 # ライブラリのインストール
 RUN go get -u github.com/gin-gonic/gin
-
-# git導入のフォルダ作成
-WORKDIR /go/src/rest_api
-
-# 初期化
-RUN go mod init rest_api
-
-ADD ./rest_api /go/src/rest_api
-ADD ./db go/db
+RUN go get github.com/jinzhu/gorm
+RUN go get github.com/go-sql-driver/mysql
+RUN go get -u github.com/pressly/goose/cmd/goose
+RUN go get -u github.com/kelseyhightower/envconfig
 
 CMD ["go", "run", "main.go"]
