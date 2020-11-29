@@ -3,26 +3,18 @@ package service
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"log"
 )
 
-// Env DBの環境情報
-type Env struct {
-	User     string      `env:"User" envDefault:"root"`
-	Port     string      `env:"PORT" envDefault:"3306"`
-	Pass     string      `env:"Pass" envDefault:"password"`
-	Protocol string      `env:"Protocol" envDefault:"tcp(rest-db:3306)"`
-	Dbname   string      `env:"Dbname" envDefault:"karo"`
-}
-
-func gormConnect() *gorm.DB {
-	dbinfo := Env{}
-	DBMS := "mysql"
-	USER := dbinfo.User
-	PASS := dbinfo.Pass
-	PROTOCOL := dbinfo.Protocol
-	DBNAME := dbinfo.Dbname
+func GormConnect() *gorm.DB {
+  DBMS := "mysql"
+  USER := "root"
+  PASS := "password"
+  PROTOCOL := "tcp(rest-db:3306)"
+  DBNAME := "karo"
 
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+	log.Print(CONNECT)
 	connection, err := gorm.Open(DBMS, CONNECT)
 
 	if err != nil {
