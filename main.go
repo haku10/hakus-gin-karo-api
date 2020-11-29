@@ -6,7 +6,7 @@ import (
     "log"
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
-    "github.com/kelseyhightower/envconfig"
+		"github.com/kelseyhightower/envconfig"
 )
 
 func main() {

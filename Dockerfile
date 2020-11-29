@@ -1,8 +1,8 @@
 FROM golang:latest
 
 # 初期化
-COPY src/ /go/src/
-WORKDIR /go/src/api/
+COPY . /go/src/
+WORKDIR /go/src/
 
 # ライブラリのインストール
 RUN go get -u github.com/gin-gonic/gin

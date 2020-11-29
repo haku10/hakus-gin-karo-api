@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - $HOME/.aws:/root/.aws
-      - ./src/:/go/src/
+      - ./:/go/src/
     ports:
       - "9601:8080"
     tty: true
