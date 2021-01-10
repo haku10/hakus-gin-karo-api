@@ -2,6 +2,8 @@ package main
 import (
     "github.com/gin-gonic/gin"
     "net/http"
+    "math/rand"
+    "strconv"
     _"github.com/jinzhu/gorm/dialects/mysql"
 	"ginrest/app/service"
     "ginrest/app/model"
@@ -29,7 +31,8 @@ func regist() string {
     connect := service.GormConnect()
     defer connect.Close()
     user := model.User{}
-    user.Name = "regist test"
+    var num = strconv.Itoa(rand.Intn(100))
+    user.Name = "regist test" + num
     connect.Create(&user)
     return user.Name
 }
