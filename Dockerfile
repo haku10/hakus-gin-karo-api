@@ -1,5 +1,9 @@
 FROM golang:latest
 
+# イメージのアップグレード
+RUN apt-get update
+RUN apt-get upgrade -y
+
 # 初期化
 COPY . /go/src/
 WORKDIR /go/src/

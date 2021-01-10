@@ -24,5 +24,13 @@ services:
       MYSQL_ROOT_PASSWORD: "password"
     volumes:
       - rest-db:/var/lib/mysql
+  dynamo-db:
+    image: amazon/dynamodb-local
+    ports:
+      - 9603:8000
+    volumes:
+      - dynamo-db:/home/dynamodblocal
 volumes:
   rest-db:
+  dynamo-db:
+    driver: local

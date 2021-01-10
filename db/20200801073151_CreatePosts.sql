@@ -5,5 +5,7 @@ CREATE TABLE users (
     name varchar(255) NOT NULL,
     age int(3),
     gender int(1),
+    create_at datetime,
+    update_at datetime,
     PRIMARY KEY(id)
 );
