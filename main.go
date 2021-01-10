@@ -5,7 +5,6 @@ import (
     _"github.com/jinzhu/gorm/dialects/mysql"
 	"ginrest/app/service"
     "ginrest/app/model"
-    "time"
 )
 
 func main() {
