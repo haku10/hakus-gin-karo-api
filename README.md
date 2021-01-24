@@ -8,6 +8,9 @@ https://github.com/gin-gonic/gin
 * into container
 `docker exec -it コンテナID bash`
 `cd /go`
+
+* goose status
+`goose status`
 * create table
 `goose up`
 * add migration file

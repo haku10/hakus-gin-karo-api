@@ -1,12 +1,14 @@
 package main
+
 import (
-    "github.com/gin-gonic/gin"
-    "net/http"
-    "math/rand"
-    "strconv"
-    _"github.com/jinzhu/gorm/dialects/mysql"
+	"ginrest/app/model"
 	"ginrest/app/service"
-    "ginrest/app/model"
+	"math/rand"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 func main() {
