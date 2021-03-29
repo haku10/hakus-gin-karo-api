@@ -1,0 +1,15 @@
+{
+	"TableName": "test_table",
+	"KeySchema": [
+		{
+			"AttributeName": "id",
+			"KeyType": "HASH"
+		}
+	],
+	"AttributeDefinitions": [
+		{
+			"AttributeName": "id",
+			"AttributeType": "S"
+		}
+	]
+}

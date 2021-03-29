@@ -30,11 +30,13 @@ services:
     volumes:
       - rest-db:/var/lib/mysql
   dynamo-db:
-    image: amazon/dynamodb-local
+    image: amazon/dynamodb-local:latest
     ports:
       - 9603:8000
+    command: "-jar DynamoDBLocal.jar -dbPath /data -sharedDb"
     volumes:
       - dynamo-db:/home/dynamodblocal
+      - ./db/dynamoDB/data:/data
 volumes:
   rest-db:
   dynamo-db:
